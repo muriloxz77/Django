@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+{% block title %}
+Homepage
+{% endblock %}
+
+
+{% block body%}
+{% for quarto in dados_quartos %}
+<div class="hotel-info">
+    <h2>{{ quarto.titulo }}</h2>
+    <p>{{ quarto.descricao }}</p>
+    <img src="{{ quarto.foto_quarto.url }}" alt="Logo do quarto">
+    <p>Disponibilidade: {{ quarto.disponibilidade }}</p>
+    <a class="btncheckin" href="/checkin">Fazer Check-in</a>
+</div>
+{% endfor %}
+{% endblock %}
+
+{% block footer%}
+<p>quarto Senai - 2024</p>
+{% endblock %}

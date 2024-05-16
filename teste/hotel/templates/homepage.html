@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+{% block title %}
+Homepage
+{% endblock %}
+
+
+{% block body%}
+{% for hotel in dados_hotel %}
+<div class="hotel-info">
+    <h2>{{ hotel.titulo }}</h2>
+    <p>{{ hotel.desc }}</p>
+{% endfor %}
+{% endblock %}
+
+{% block footer%}
+<p>Hotel Senai - 2024</p>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<style>
+    .form-container {
+        width: 300px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f2f2f2;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .form-container form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-container input[type="text"] {
+        padding: 10px;
+        margin-bottom: 10px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .form-container input[type="submit"] {
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .title{
+        text-align: center;
+    }
+</style>
+{% endblock %}
+{% block title %}
+<h1 class="title">Check-in</h1>
+{% endblock %}
+{% block body %}
+<div class="form-container">
+    <form action="/checkin/" method="POST">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" value="Fazer Check-in">
+    </form>
+</div>
+{% endblock %}
